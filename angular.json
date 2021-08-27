@@ -29,7 +29,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/styles.scss"
             ],
             "scripts": [],
             "customWebpackConfig": {
@@ -119,7 +119,7 @@
             "karmaConfig": "src/karma.conf.js",
             "scripts": [],
             "styles": [
-              "src/styles.scss"
+              "src/styles/styles.scss"
             ],
             "assets": [
               "src/assets"
