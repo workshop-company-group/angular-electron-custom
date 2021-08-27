@@ -6,6 +6,7 @@ describe('ElectronService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const service: ElectronService = TestBed.get(ElectronService);
     expect(service).toBeTruthy();
   });

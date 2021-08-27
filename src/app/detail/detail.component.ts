@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  styleUrls: ['./detail.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly logger: NGXLogger) { }
 
-  ngOnInit(): void {
-    console.log('DetailComponent INIT');
-   }
+  public ngOnInit(): void {
+    this.logger.log('DetailComponent INIT');
+  }
 
 }

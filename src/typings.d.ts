@@ -4,6 +4,6 @@ interface NodeModule {
   id: string;
 }
 interface Window {
-  process: any;
-  require: any;
+  process: unknown;
+  require: unknown;
 }

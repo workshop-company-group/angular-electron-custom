@@ -9,10 +9,10 @@ describe('DetailComponent', () => {
   let component: DetailComponent;
   let fixture: ComponentFixture<DetailComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
+  beforeEach(waitForAsync(async () => {
+    await TestBed.configureTestingModule({
       declarations: [DetailComponent],
-      imports: [TranslateModule.forRoot(), RouterTestingModule]
+      imports: [TranslateModule.forRoot(), RouterTestingModule],
     }).compileComponents();
   }));
 
@@ -27,9 +27,12 @@ describe('DetailComponent', () => {
   });
 
   it('should render title in a h1 tag', waitForAsync(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const compiled = fixture.debugElement.nativeElement;
+    // eslint-disable-next-line max-len
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     expect(compiled.querySelector('h1').textContent).toContain(
-      'PAGES.DETAIL.TITLE'
+      'PAGES.DETAIL.TITLE',
     );
   }));
 });
