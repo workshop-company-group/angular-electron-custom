@@ -6,8 +6,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
+    "resolveJsonModule": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
     "types": [
-      "node"
+      "node",
     ],
     "lib": [
       "es2017",
