@@ -100,6 +100,7 @@ Maybe you only want to execute the application in the browser with hot reload? J
 |`npm run build:prod`| Build the app with Angular aot. Your built files are in the /dist folder. |
 |`npm run electron:local`| Builds your application and start electron
 |`npm run electron:build`| Builds your application and creates an app consumable based on your operating system |
+|`npm run electron:lint`| Linting your application code |
 
 **Your application is optimised. Only /dist folder and NodeJS dependencies are included in the final bundle.**
 
