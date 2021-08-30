@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 
 import { ipcRenderer, webFrame } from 'electron';
@@ -20,7 +21,9 @@ export class ElectronService {
   public fs: typeof fs;
 
   public get isElectron(): boolean {
-    return !!(window.process.type);
+    // eslint-disable-next-line max-len
+    // eslint-disable-next-line @typescript-eslint/prefer-optional-chain, @typescript-eslint/no-unnecessary-condition
+    return !!(window.process && window.process.type);
   }
 
   constructor() {
