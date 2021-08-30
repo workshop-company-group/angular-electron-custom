@@ -28,6 +28,8 @@ export class ElectronService {
 
   constructor() {
     // Conditional imports
+    // some of linter rules has to be commented
+    // because of the weird nodejs libraries imports
     if (this.isElectron) {
       this.ipcRenderer = window.require('electron').ipcRenderer;
       this.webFrame = window.require('electron').webFrame;
