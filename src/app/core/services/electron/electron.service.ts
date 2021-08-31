@@ -1,6 +1,8 @@
+
 import { Injectable } from '@angular/core';
 
-import { ipcRenderer, webFrame, remote } from 'electron';
+import { ipcRenderer, webFrame } from 'electron';
+import * as remote from '@electron/remote';
 import * as childProcess from 'child_process';
 import * as fs from 'fs';
 
@@ -19,17 +21,24 @@ export class ElectronService {
   public fs: typeof fs;
 
   public get isElectron(): boolean {
-    return !!(window.process.type);
+    // eslint-disable-next-line max-len
+    // eslint-disable-next-line @typescript-eslint/prefer-optional-chain, @typescript-eslint/no-unnecessary-condition
+    return !!(window.process && window.process.type);
   }
 
   constructor() {
     // Conditional imports
+    // some of linter rules has to be disabled
+    // because of the weird nodejs libraries imports
     if (this.isElectron) {
-      this.ipcRenderer = ipcRenderer;
-      this.webFrame = webFrame;
-      this.remote = remote;
-      this.childProcess = childProcess;
-      this.fs = fs;
+      this.ipcRenderer = window.require('electron').ipcRenderer;
+      this.webFrame = window.require('electron').webFrame;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      this.childProcess = window.require('child_process');
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      this.fs = window.require('fs');
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      this.remote = window.require('@electron/remote');
     }
   }
 }
