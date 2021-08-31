@@ -22,7 +22,7 @@ jobs:
     - name: nodejs
       uses: actions/setup-node@v1
       with:
-        node-version: '14'
+        node-version: '16'
 
     - name: packages installation
       run:
@@ -37,6 +37,8 @@ jobs:
     name: Linter
     needs: initialization
     steps:
+    - run:
+        cat package.json
     - name: linter checking
       run:
         npm run lint
