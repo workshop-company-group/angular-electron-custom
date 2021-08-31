@@ -1,4 +1,4 @@
-name: 'Linux'
+name: 'Linux Build'
 
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
@@ -13,32 +13,29 @@ on:
 
 jobs:
   initialization:
-    runs-on: ubuntu-20.04
+    runs-on: windows-latest
     name: Initialization
     steps:
-    - name: checkout
+    - name: Git checkout
       uses: actions/checkout@v2
 
-    - name: nodejs
+    - name: NodeJS initialization
       uses: actions/setup-node@v1
       with:
         node-version: '16'
 
-    - name: packages installation
+    - name: Packages installation
       run:
         npm install
 
-    - name: second_step
-      run:
-        echo "second step"
-
-  linter:
-    runs-on: ubuntu-20.04
-    name: Linter
-    needs: initialization
-    steps:
-    - run:
-        cat package.json
-    - name: linter checking
+    - name: Linter checking
       run:
         npm run lint
+
+    - name: Angular build
+      run:
+        npm run ng:build
+
+    - name: Electron build and release
+      run:
+        npm run electron:build
