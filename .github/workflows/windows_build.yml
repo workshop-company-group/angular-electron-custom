@@ -1,0 +1,41 @@
+name: 'Windows Build'
+
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  initialization:
+    runs-on: windows-latest
+    name: Initialization
+    steps:
+    - name: Git checkout
+      uses: actions/checkout@v2
+
+    - name: NodeJS initialization
+      uses: actions/setup-node@v1
+      with:
+        node-version: '16'
+
+    - name: Packages installation
+      run:
+        npm install
+
+    - name: Linter checking
+      run:
+        npm run lint
+
+    - name: Angular build
+      run:
+        npm run ng:build
+
+    - name: Electron build and release
+      run:
+        npm run electron:build
