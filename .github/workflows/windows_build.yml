@@ -28,10 +28,6 @@ jobs:
       run:
         npm install
 
-    - name: Linter checking
-      run:
-        npm run lint
-
     - name: Angular build
       run:
         npm run ng:build
