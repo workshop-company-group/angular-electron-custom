@@ -28,10 +28,13 @@ jobs:
       run:
         npm install
 
-    - name: Linter checking
+    - name: Linting code
       run:
         npm run lint
-        npm run lint:styles
+   
+    - name: Linting styles
+      run:
+        npm run lint:styls
 
     - name: Angular build
       run:
