@@ -32,7 +32,7 @@ html, body {
     background: #ED3330;
     border-radius: 5px;
 
-    color: #FFFFFF !important;
+    color: #FFFFFF;
     text-decoration: none;
     text-transform: uppercase;
     transition: all .4s ease 0s;
@@ -42,7 +42,7 @@ html, body {
       -webkit-box-shadow: 0 5px 40px -10px rgba(0, 0, 0, .57);
       -moz-box-shadow: 0 5px 40px -10px rgba(0, 0, 0, .57);
       box-shadow: 5px 40px -10px rgba(0, 0, 0, .57);
-      color: #ED3330 !important;
+      color: #ED3330;
       letter-spacing: 1px;
       transition: all .4s ease 0s;
     }
