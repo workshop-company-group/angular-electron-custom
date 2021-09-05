@@ -34,7 +34,7 @@ jobs:
    
     - name: Linting styles
       run:
-        npm run lint:styls
+        npm run lint:styles
 
     - name: Angular build
       run:
