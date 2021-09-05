@@ -18,12 +18,12 @@ echo "Clearing global styles..."
 
 echo "Clearing module declarations, exports, imports..."
 # src/app/app.module.ts
-sed -i '34,40d' src/app/app.module.ts
-sed -i '31,32d' src/app/app.module.ts
-sed -i '28d' src/app/app.module.ts
-sed -i '20,22d' src/app/app.module.ts
-sed -i '11,17d' src/app/app.module.ts
-sed -i '5d' src/app/app.module.ts
+sed -i '32,38d' src/app/app.module.ts
+sed -i '29,30d' src/app/app.module.ts
+sed -i '26d' src/app/app.module.ts
+sed -i '19,21d' src/app/app.module.ts
+sed -i '10,16d' src/app/app.module.ts
+sed -i '4d' src/app/app.module.ts
 # src/app/app.component.ts
 sed -i '18,28d' src/app/app.component.ts
 sed -i '16d' src/app/app.component.ts
@@ -33,9 +33,9 @@ sed -i '23,24d' src/app/app-routing.module.ts
 sed -i '9,17d' src/app/app-routing.module.ts
 sed -i '3,6d' src/app/app-routing.module.ts
 # src/app/shared/shared.module.ts
-sed -i '19,20d' src/app/shared/shared.module.ts
-sed -i '15,16d' src/app/shared/shared.module.ts
-sed -i '11d' src/app/shared/shared.module.ts
-sed -i '3,7d' src/app/shared/shared.module.ts
+sed -i '15d' src/app/shared/shared.module.ts
+sed -i '12d' src/app/shared/shared.module.ts
+sed -i '9d' src/app/shared/shared.module.ts
+sed -i '3,5d' src/app/shared/shared.module.ts
 
 echo ">>> Scaffolding finished successfully!"
