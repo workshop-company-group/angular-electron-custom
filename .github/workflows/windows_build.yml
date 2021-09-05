@@ -12,9 +12,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  initialization:
+  windows-pipe:
     runs-on: windows-latest
-    name: Initialization
+    name: Windows pipeline
     steps:
     - name: Git checkout
       uses: actions/checkout@v2
