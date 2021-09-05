@@ -17,8 +17,6 @@ import { DetailModule } from './detail/detail.module';
 
 import { AppComponent } from './app.component';
 
-import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
-
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
@@ -39,11 +37,6 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new Transla
         useFactory: httpLoaderFactory,
         deps: [HttpClient],
       },
-    }),
-    LoggerModule.forRoot({
-      serverLoggingUrl: '/api/logs',
-      level: NgxLoggerLevel.DEBUG,
-      serverLogLevel: NgxLoggerLevel.ERROR,
     }),
   ],
   providers: [],
