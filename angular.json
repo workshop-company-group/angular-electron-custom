@@ -15,7 +15,8 @@
           "strict": true
         },
         "@schematics/angular:component": {
-            "skipTests": true
+            "skipTests": true,
+            "changeDetection": "OnPush"
         },
         "@schematics/angular:class": {
             "skipTests": true
