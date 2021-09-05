@@ -24,7 +24,7 @@ With this sample, you can:
 *Clone this repository locally:*
 
 ``` bash
-git clone https://github.com/maximegris/angular-electron.git
+git clone git@github.com:workshop-company-group/angular-electron-custom.git
 ```
 
 *Install dependencies with npm (used by Electron renderer process):*
@@ -35,13 +35,6 @@ npm install
 
 There is an issue with `yarn` and `node_modules` when the application is built by the packager. Please use `npm` as dependencies manager.
 
-If you want to generate Angular components with Angular-cli , you **MUST** install `@angular/cli` in npm global context.
-Please follow [Angular-cli documentation](https://github.com/angular/angular-cli) if you had installed a previous version of `angular-cli`.
-
-``` bash
-npm install -g @angular/cli
-```
-
 *Install NodeJS dependencies with npm (used by Electron main process):*
 
 ``` bash
@@ -51,9 +44,14 @@ npm install
 
 Why two package.json ? This project follow [Electron Builder two package.json structure](https://www.electron.build/tutorials/two-package-structure) in order to optimize final bundle and be still able to use Angular `ng add` feature.
 
+*Remove all sample components and modules:*
+```bash
+./scaffold.sh
+```
+
 ## To build for development
 
-- **in a terminal window** -> npm start
+- **in a terminal window** -> `npm start`
 
 Voila! You can use your Angular + Electron app in a local development environment with hot reload!
 
@@ -67,6 +65,20 @@ You can disable "Developer Tools" by commenting `win.webContents.openDevTools();
 | ---- | ---- |
 | app | Electron main process folder (NodeJS) |
 | src | Electron renderer process folder (Web / Angular) |
+
+## How to generate components/services/directives
+
+If you want to generate Angular components with Angular-cli , you **MUST** install `@angular/cli` in npm global context.
+Please follow [Angular-cli documentation](https://github.com/angular/angular-cli) if you had installed a previous version of `angular-cli`.
+
+``` bash
+npm install -g @angular/cli
+```
+
+You can generate all of them with `@angular/cli` as usual except for generating test files (`.spec`). 
+To generate test file with component/service/directive use flag `--skip-tests=false`.
+
+**All components are generated with OnPush change detection strategy by default.**
 
 ## How to import 3rd party libraries
 

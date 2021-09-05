@@ -38,4 +38,7 @@ sed -i '12d' src/app/shared/shared.module.ts
 sed -i '9d' src/app/shared/shared.module.ts
 sed -i '3,5d' src/app/shared/shared.module.ts
 
+echo "Removing scaffold script..."
+rm -rf scaffold.sh
+
 echo ">>> Scaffolding finished successfully!"
