@@ -12,9 +12,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  initialization:
+  linux-pipe:
     runs-on: ubuntu-20.04
-    name: Initialization
+    name: Linux pipeline
     steps:
     - name: Git checkout
       uses: actions/checkout@v2
@@ -31,6 +31,7 @@ jobs:
     - name: Linter checking
       run:
         npm run lint
+        npm run lint:styles
 
     - name: Angular build
       run:
