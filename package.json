@@ -1,25 +1,7 @@
 {
   "name": "angular-electron",
-  "version": "10.1.0",
+  "version": "1.0.0",
   "description": "Angular 12 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
-  "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
-  },
-  "keywords": [
-    "angular",
-    "angular 12",
-    "electron",
-    "nodejs",
-    "typescript",
-    "spectron",
-    "eslint",
-    "sass",
-    "windows",
-    "mac",
-    "linux"
-  ],
   "main": "app/main.js",
   "private": true,
   "scripts": {
@@ -53,7 +35,6 @@
     "@angular/platform-browser-dynamic": "12.1.2",
     "@angular/router": "12.1.2",
     "@electron/remote": "1.2.0",
-    "ngx-logger": "^4.3.3",
     "rxjs": "~6.6.0",
     "stylelint": "^13.13.1",
     "stylelint-config-idiomatic-order": "^8.1.0",

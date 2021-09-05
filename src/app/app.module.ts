@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
@@ -17,8 +16,6 @@ import { DetailModule } from './detail/detail.module';
 
 import { AppComponent } from './app.component';
 
-import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
-
 // AoT requires an exported function for factories
 const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
@@ -26,7 +23,6 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new Transla
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpClientModule,
     CoreModule,
     SharedModule,
@@ -39,11 +35,6 @@ const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader => new Transla
         useFactory: httpLoaderFactory,
         deps: [HttpClient],
       },
-    }),
-    LoggerModule.forRoot({
-      serverLoggingUrl: '/api/logs',
-      level: NgxLoggerLevel.DEBUG,
-      serverLogLevel: NgxLoggerLevel.ERROR,
     }),
   ],
   providers: [],

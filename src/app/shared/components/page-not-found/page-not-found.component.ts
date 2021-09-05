@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-page-not-found',
@@ -9,10 +8,9 @@ import { NGXLogger } from 'ngx-logger';
 })
 export class PageNotFoundComponent implements OnInit {
   constructor(
-    private readonly logger: NGXLogger,
   ) {}
 
   public ngOnInit(): void {
-    this.logger.log('PageNotFoundComponent INIT');
+    console.log('PageNotFoundComponent INIT');
   }
 }

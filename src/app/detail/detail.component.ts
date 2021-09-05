@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-detail',
@@ -9,10 +8,11 @@ import { NGXLogger } from 'ngx-logger';
 })
 export class DetailComponent implements OnInit {
 
-  constructor(private readonly logger: NGXLogger) { }
+  constructor(
+  ) { }
 
   public ngOnInit(): void {
-    this.logger.log('DetailComponent INIT');
+    console.log('DetailComponent INIT');
   }
 
 }

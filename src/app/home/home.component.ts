@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +11,10 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private readonly router: Router,
-    private readonly logger: NGXLogger,
   ) { }
 
   public ngOnInit(): void {
-    this.logger.log('HomeComponent INIT');
+    console.log('HomeComponent INIT');
   }
 
 }
