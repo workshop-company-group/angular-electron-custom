@@ -4,9 +4,10 @@ import * as fs from 'fs';
 import * as url from 'url';
 
 // Initialize remote module
+// eslint-disable-next-line -- disabling because of `require` imports
 require('@electron/remote/main').initialize();
 
-let win: BrowserWindow;
+let win: BrowserWindow | undefined;
 const args = process.argv.slice(1),
   serve = args.some(val => val === '--serve');
 
@@ -23,31 +24,34 @@ function createWindow(): BrowserWindow {
     height: size.height,
     webPreferences: {
       nodeIntegration: true,
-      allowRunningInsecureContent: (serve) ? true : false,
-      contextIsolation: false,  // false if you want to run e2e test with Spectron
+      allowRunningInsecureContent: serve,
+      // false if you want to run e2e test with Spectron
+      contextIsolation: false,
     },
   });
 
 
   if (serve) {
     win.webContents.openDevTools();
+    // eslint-disable-next-line -- disabling because of `require` imports
     require('electron-reload')(__dirname, {
+      // eslint-disable-next-line -- disabling because of `require` imports
       electron: require(path.join(__dirname, '/../node_modules/electron'))
     });
-    win.loadURL('http://localhost:4200');
+    void win.loadURL('http://localhost:4200');
   } else {
     // Path when running electron executable
     let pathIndex = './index.html';
 
     if (fs.existsSync(path.join(__dirname, '../dist/index.html'))) {
-       // Path when running electron in local folder
+      // Path when running electron in local folder
       pathIndex = '../dist/index.html';
     }
 
-    win.loadURL(url.format({
+    void win.loadURL(url.format({
       pathname: path.join(__dirname, pathIndex),
       protocol: 'file:',
-      slashes: true
+      slashes: true,
     }));
   }
 
@@ -56,7 +60,7 @@ function createWindow(): BrowserWindow {
     // Dereference the window object, usually you would store window
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    app.quit()
+    app.quit();
   });
 
   return win;
@@ -69,7 +73,8 @@ try {
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
   // Added 400 ms to fix the black background issue while using transparent window. More detais at https://github.com/electron/electron/issues/15947
-  app.on('ready', () => setTimeout(createWindow, 400));
+  const WINDOW_CREATION_TIMEOUT = 400;
+  app.on('ready', () => setTimeout(createWindow, WINDOW_CREATION_TIMEOUT));
 
   // Quit when all windows are closed.
   app.on('window-all-closed', () => {
@@ -81,7 +86,7 @@ try {
   app.on('activate', () => {
     // On OS X it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (win === null) {
+    if (!win) {
       createWindow();
     }
   });
