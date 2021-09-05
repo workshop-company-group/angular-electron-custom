@@ -75,7 +75,7 @@ Please follow [Angular-cli documentation](https://github.com/angular/angular-cli
 npm install -g @angular/cli
 ```
 
-You can generate all of them with `@angular/cli` as usual except for generating test files (`.spec`). 
+You can generate components/services/directives with `@angular/cli` as usual except for generating test files (`.spec`). 
 To generate test file with component/service/directive use flag `--skip-tests=false`.
 
 **All components are generated with OnPush change detection strategy by default.**
