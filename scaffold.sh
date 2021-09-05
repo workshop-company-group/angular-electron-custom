@@ -11,7 +11,8 @@ rm -rf \
 
 echo "Removing sample assets..."
 rm -rf \
-  src/assets/*
+  src/assets/background.jpg \
+  src/assets/i18n
 
 echo "Clearing global styles..."
 > src/styles/styles.scss
